@@ -1,1 +1,15 @@
-<p>signup works!</p>
+<!-- This endpoint in API need username, password to register a new user-->
+<!-- This endpoint will be visible to superuser -->
+<!-- In API Models change user table to have one more field: superuser of type boolean -->
+<section class="signup-form">
+    <form fxLayout = "column" fxLayoutAlign = "center center" #f="ngForm" (ngSubmit) = "onSubmit(f)">
+        <mat-form-field>
+            <input matInput placeholder="Username" ngModel name="username" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password" ngModel name="password" required>
+        </mat-form-field>
+        <mat-checkbox ngModel name="superuser" color="primary">Give superuser privileges to this user</mat-checkbox>
+        <button type="submit" mat-raised-button color = "primary" class="button" [disabled]="f.invalid">Add User</button>
+    </form>
+</section>
